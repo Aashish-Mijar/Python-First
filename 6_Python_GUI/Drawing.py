@@ -8,3 +8,7 @@ canvas.pack()
 # Draw a line
 canvas.create_line(10,10,200,10, fill="blue")
 
+# Draw a rectangle
+canvas.create_rectangle(50, 50, 150, 100, fill="green")
+
+
