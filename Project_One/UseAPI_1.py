@@ -11,3 +11,7 @@ cases = data['cases']
 deaths = data['deaths']
 recovered = data['recovered']
 
+print(f"COVID Starts from {countryname}")
+print(f"Cases: {cases}")
+print(f"Deaths: {deaths}")
+print(f"Recovered: {recovered}")
