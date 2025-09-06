@@ -41,3 +41,29 @@ def create_crossword(words):
                 return True
             attempts -= 1
         return False
+    
+    for word in words:
+        place_word(word.lower())
+
+    # Fill remaining cells with random letters
+    for r in range(size):
+        for c in range(size):
+            if grid[r][c]== '':
+                grid[r][c]  = random.choice(string.ascii_lowercalse)
+    
+    # Print with highlights
+    for r in range(size):
+        row_output = ''
+        for c in range(size):
+            char = grid[r][c]
+            if(r, c) in highlight_positions:
+                row_output += f"{COLOR}{char}{RESET} "
+            else:
+                row_output += f"{char} "
+            
+        print(row_output)
+
+# Example usage
+words = (input("Enter words: ").strip().split(','))
+create_crossword(words)
+
