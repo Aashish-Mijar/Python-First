@@ -12,10 +12,11 @@ def cake_calculator(flour, sugar):
     # Let's limit ingredient determines how many cakes we can make
     cakesPossible = min(maxCakesFromFlour, maxCakesFromSugar)
 
-    remainingFlour = flour - (cakes * 100)
-    remainingSugar = sugar - (cakes * 50)
+    # Let's calculate leftover indredients
+    remainingFlour = flour - (cakesPossible * flourPerCake)
+    remainingSugar = sugar - (cakesPossible * sugarPerCake)
 
-    return [cakes, remainingFlour, remainingSugar]
+    return [cakesPossible, remainingFlour, remainingSugar]
 
 # print(cake_calculator(350, 200))
 # print(cake_calculator(120, 45))
