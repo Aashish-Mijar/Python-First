@@ -4,10 +4,13 @@ def cake_calculator(flour, sugar):
     # Recipe requirements per cake
     flourPerCake = 100
     sugarPerCake = 50
-    cakesFromFlour = flour // 100
-    cakesFromSugar = sugar // 50
 
-    cakes = min(cakesFromFlour, cakesFromSugar)
+    # Let's calcuate the maximun cakes based on each ingredient
+    maxCakesFromFlour = flour // flourPerCake
+    maxCakesFromSugar = sugar // sugarPerCake
+
+    # Let's limit ingredient determines how many cakes we can make
+    cakesPossible = min(maxCakesFromFlour, maxCakesFromSugar)
 
     remainingFlour = flour - (cakes * 100)
     remainingSugar = sugar - (cakes * 50)
