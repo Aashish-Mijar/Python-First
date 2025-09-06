@@ -18,7 +18,4 @@ def cake_calculator(flour, sugar):
 
     return [cakesPossible, remainingFlour, remainingSugar]
 
-# print(cake_calculator(350, 200))
-# print(cake_calculator(120, 45))
-
-print(f"The total baked cakes and remaining flour , sugar respectively is ",cake_calculator(350, 200))
+print(f"The total baked cakes and remaining flour, sugar respectively was ",cake_calculator(350, 200))
