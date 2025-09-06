@@ -17,3 +17,12 @@ def create_crossword(words):
         (1, 1), # diagonal down-right
         (-1, 1), # diagonal up-right
     ]
+
+    def can_place(word, row, col, dr, dc):
+        for i in range(len(word)):
+            r, c = row + dr*i, col + dc *i
+            if r < 0 or r >= size or c < 0 or c >= size:
+                return False
+            if grid[r][c] not in ('', word[i]):
+                return False
+            return True
