@@ -35,7 +35,7 @@ def create_crossword(words):
             col = random.randint(0, size-1)
             if can_place(word, row, col, dr, dc):
                 for i in range(len(word)):
-                    r, c = word + dr*i, col + dc *i
+                    r, c = row + dr*i, col + dc *i
                     grid[r][c] = word[i]
                     highlight_positions.add((r, c))
                 return True
@@ -49,7 +49,7 @@ def create_crossword(words):
     for r in range(size):
         for c in range(size):
             if grid[r][c]== '':
-                grid[r][c]  = random.choice(string.ascii_lowercalse)
+                grid[r][c]  = random.choice(string.ascii_lowercase)
     
     # Print with highlights
     for r in range(size):
