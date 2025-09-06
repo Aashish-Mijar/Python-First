@@ -26,3 +26,18 @@ def create_crossword(words):
             if grid[r][c] not in ('', word[i]):
                 return False
             return True
+    
+    def place_word(word):
+        attempts = 100
+        while attempts > 0:
+            dr, dc = random.choice(directions)
+            row = random.randint(0, size-1)
+            col = random.randint(0, size-1)
+            if can_place(word, row, col, dr, dc):
+                for i in range(len(word)):
+                    r, c = word + dr*i, col + dc *i
+                    grid[r][c] = word[i]
+                    highlight_positions.add((r, c))
+                return True
+            attempts -= 1
+        return False
