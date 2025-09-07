@@ -20,14 +20,15 @@ def create_crossword(words):
         (-1, 1), # diagonal up-right
     ]
 
+    # Check if a word can be placed at a given starting position and direction
     def can_place(word, row, col, dr, dc):
         for i in range(len(word)):
-            r, c = row + dr*i, col + dc *i
-            if r < 0 or r >= size or c < 0 or c >= size:
+            r, c = row + dr*i, col + dc *i  # Calculate position of each character
+            if r < 0 or r >= size or c < 0 or c >= size:  # Check if position is within grid bounds
                 return False
-            if grid[r][c] not in ('', word[i]):
+            if grid[r][c] not in ('', word[i]):  # Check for conflict with exisiting letters
                 return False
-            return True
+            return True  # Word can be placed safely
     
     def place_word(word):
         attempts = 100
