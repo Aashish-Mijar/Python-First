@@ -16,6 +16,7 @@ def cake_calculator(flour, sugar):
     remainingFlour = flour - (cakesPossible * flourPerCake)
     remainingSugar = sugar - (cakesPossible * sugarPerCake)
 
+    # Return the result as a List: number of cakes made, flour left, sugar left
     return [cakesPossible, remainingFlour, remainingSugar]
 
 print(f"The total baked cakes and remaining flour, sugar respectively was ",cake_calculator(350, 200))
