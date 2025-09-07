@@ -30,20 +30,21 @@ def create_crossword(words):
                 return False
             return True  # Word can be placed safely
     
+    # Try a place a word randomly in the grid
     def place_word(word):
-        attempts = 100
+        attempts = 100  # LImit number of placement attempts to avoid infinite loops
         while attempts > 0:
-            dr, dc = random.choice(directions)
-            row = random.randint(0, size-1)
-            col = random.randint(0, size-1)
-            if can_place(word, row, col, dr, dc):
+            dr, dc = random.choice(directions)  # Randomly choose a direction
+            row = random.randint(0, size-1)     # Randomly choose a starting row
+            col = random.randint(0, size-1)     # Randomly choose a starting column
+            if can_place(word, row, col, dr, dc):   # Checks if word fits
                 for i in range(len(word)):
-                    r, c = row + dr*i, col + dc *i
-                    grid[r][c] = word[i]
-                    highlight_positions.add((r, c))
-                return True
-            attempts -= 1
-        return False
+                    r, c = row + dr*i, col + dc *i  # Calculate position for each character
+                    grid[r][c] = word[i]    # Place character in grid
+                    highlight_positions.add((r, c))   # Mark position for highlighting
+                return True # Wrod successfully placed
+            attempts -= 1   #Try again with a new position/ direction
+        return False    # Failed to place word after all attempts
     
     for word in words:
         place_word(word.lower())
