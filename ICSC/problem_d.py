@@ -46,8 +46,9 @@ def create_crossword(words):
             attempts -= 1   #Try again with a new position/ direction
         return False    # Failed to place word after all attempts
     
+    # Place each word from the input list into the grid
     for word in words:
-        place_word(word.lower())
+        place_word(word.lower()) # Convert to lowercase for consistency
 
     # Fill remaining cells with random letters
     for r in range(size):
@@ -55,17 +56,18 @@ def create_crossword(words):
             if grid[r][c]== '':
                 grid[r][c]  = random.choice(string.ascii_lowercase)
     
-    # Print with highlights
+    # Print with highlights word characters
     for r in range(size):
         row_output = ''
         for c in range(size):
             char = grid[r][c]
             if(r, c) in highlight_positions:
-                row_output += f"{COLOR}{char}{RESET} "
+                row_output += f"{COLOR}{char}{RESET} "  # Highlight word character
             else:
-                row_output += f"{char} "
+                row_output += f"{char} "  # Normal character
             
         print(row_output)
+
 
 # Example usage
 words = (input("Enter words: ").strip().split(','))
