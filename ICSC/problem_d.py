@@ -8,9 +8,11 @@ RESET = '\033[0m'
 
 def create_crossword(words):
     size = 10
-    grid = [['' for _ in range(size)] for _ in range(size)]
-    highlight_positions = set()
+    grid = [['' for _ in range(size)] for _ in range(size)] # Create a 10 x 10 grid initalized with empty strings
+    highlight_positions = set() # Store positions of characters that belong to placed words for highlighting
 
+    # Define possible directions for placing words:
+    # (row change, column change) - horizontal, vertical, diagonal down-right, diagonal up-right
     directions = [
         (0, 1), # horizontal
         (1, 0), # vertical
